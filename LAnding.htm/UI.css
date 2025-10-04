@@ -1,0 +1,42 @@
+
+
+        /* Custom CSS for additional styling */
+        .question-card {
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .question-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        .vote-btn {
+            transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+        }
+        .vote-btn:hover {
+            background-color: #e5e7eb;
+            transform: scale(1.05);
+        }
+        .fade-in {
+            animation: fadeIn 0.6s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .error-message {
+            transition: opacity 0.3s ease-in-out;
+        }
+        .nav-link {
+            transition: color 0.2s ease-in-out;
+        }
+        .nav-link:hover {
+            color: #bfdbfe;
+        }
+        img-scr{
+            height: 100px;
+            width: 100px;
+            margin-top: 20px;
+           position: fixed;
+           top: 0;
+           left: 0;
+           background-image: none;
+        }

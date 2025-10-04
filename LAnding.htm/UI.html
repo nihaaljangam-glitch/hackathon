@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Q&A App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+</head>
+<body class="bg-gradient-to-b from-blue-50 to-gray-100 min-h-screen flex flex-col items-center p-4 sm:p-6">
+    <!-- Navigation Bar -->
+    <nav class="bg-blue-600 text-white py-4 px-4 sm:px-6 sticky top-0 z-10 shadow-md w-full">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="landing.html" class="text-xl font-bold">Student Q&A Hub</a>
+            <div class="space-x-4">
+                <a href="landing.html" class="nav-link text-sm sm:text-base">Home</a>
+                <a href="app.html" class="nav-link text-sm sm:text-base">Q&A App</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="w-full max-w-4xl mb-8 mt-6">
+        <h1 class="text-3xl sm:text-4xl font-bold text-gray-800 text-center">Student Q&A Hub</h1>
+        <p class="text-gray-600 text-center mt-2">Ask, answer, and learn together!</p>
+    </header>
+
+    <!-- Ask a Question Section -->
+    <section class="w-full max-w-4xl mb-12">
+        <form id="question-form" class="bg-white p-8 rounded-xl shadow-lg space-y-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div>
+                    <label for="class-select" class="block text-sm font-medium text-gray-700 mb-2">Class</label>
+                    <select
+                        id="class-select"
+                        class="w-full p-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white text-gray-700 transition-colors"
+                        required
+                        aria-label="Select class"
+                    >
+                        <option value="" disabled selected>Select your Year</option>
+                        <option value="1st">1st Year</option>
+                        <option value="2nd">2nd Year</option>
+                        <option value="3rd">3rd Year</option>
+                        <option value="4th">4th Year</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="subject-select" class="block text-sm font-medium text-gray-700 mb-2">Subject</label>
+                    <select
+                        id="subject-select"
+                        class="w-full p-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white text-gray-700 transition-colors"
+                        required
+                        aria-label="Select subject"
+                    >
+                        <option value="" disabled selected>Select your subject</option>
+                        <option value="Math">Mathematics</option>
+                        <option value="Physics:">Physics</option>
+                        <option value="Chemistry">Chemistry</option>
+                        <option value="Basic Electrical Engineering">Basic Electrical Engineering</option>
+                        <option value="Basic Electronics Engineering">Basic Electronics Engineering</option>
+                        <option value="Engineering Mechanics">Engineering Mechanics</option>
+                        <option value="Computer Programming">Computer Programming</option>
+                        <option value="Engineering Drawing/Graphics">Engineering Drawing/Graphics</option>
+                        <option value="Environmental Science">Environmental Science</option>
+                        <option value="Communication Skill">Communication Skill</option>
+                        <option value="Computer Science">Computer Science</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <label for="question-input" class="block text-sm font-medium text-gray-700 mb-2">Your Question</label>
+                <textarea
+                    id="question-input"
+                    placeholder="What's your question?"
+                    class="w-full p-4 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none text-gray-700"
+                    rows="5"
+                    required
+                    aria-label="Ask a question"
+                ></textarea>
+            </div>
+            <div class="flex items-center justify-between">
+                <label class="flex items-center space-x-2">
+                    <input
+                        type="checkbox"
+                        id="anonymous"
+                        class="h-5 w-5 text-blue-600 focus:ring-blue-500 rounded"
+                        aria-label="Post anonymously"
+                    >
+                    <span class="text-sm text-gray-600">Post anonymously</span>
+                </label>
+                <button
+                    type="submit"
+                    class="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors"
+                >
+                    Ask Question
+                </button>
+            </div>
+            <p id="error-message" class="text-red-500 text-sm hidden error-message">Please fill out all fields.</p>
+        </form>
+    </section>
+
+    <!-- Question Feed Section -->
+    <section class="w-full max-w-4xl">
+        <h2 class="text-2xl font-semibold text-gray-800 mb-8">Recent Questions</h2>
+        <div id="question-feed" class="space-y-8">
+            <!-- Sample Question Card -->
+            <div class="question-card bg-white p-8 rounded-xl shadow-md fade-in" role="article">
+                <div class="flex justify-between items-start">
+                    <h3 class="text-xl font-semibold text-gray-800">
+                        How do I prepare for a coding interview?
+                        <span class="text-sm text-gray-500 italic block mt-1">
+                            (Anonymous, 1st Year, Computer Science)
+                        </span>
+                    </h3>
+                </div>
+                <div class="mt-4 text-gray-600">
+                    <p class="text-base"><strong>Answer:</strong> Practice on LeetCode, focus on data structures like arrays, linked lists, and trees, and review algorithms like binary search and DFS.</p>
+                </div>
+                <div class="flex space-x-4 mt-6">
+                    <button class="vote-btn flex items-center space-x-2 text-gray-600 px-4 py-2 rounded-md" onclick="vote(this, 'up', 1)" aria-label="Upvote question">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path></svg>
+                        <span>5</span>
+                    </button>
+                    <button class="vote-btn flex items-center space-x-2 text-gray-600 px-4 py-2 rounded-md" onclick="vote(this, 'down', 1)" aria-label="Downvote question">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        <span>0</span>
+                    </button>
+                </div>
+            </div>
+            <!-- More questions will be dynamically added here -->
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 bg-gray-800 text-white text-center w-full mt-12">
+        <p>&copy; 2025 Student Q&A Hub. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Form submission for asking questions
+        document.getElementById('question-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const question = document.getElementById('question-input').value;
+            const isAnonymous = document.getElementById('anonymous').checked;
+            const classSelected = document.getElementById('class-select').value;
+            const subjectSelected = document.getElementById('subject-select').value;
+            const errorMessage = document.getElementById('error-message');
+
+            // Basic client-side validation
+            if (!question || !classSelected || !subjectSelected) {
+                errorMessage.classList.remove('hidden');
+                return;
+            }
+            errorMessage.classList.add('hidden');
+
+            // Simulate API call
+            try {
+                const response = await fetch('/api/questions', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ question, isAnonymous, class: classSelected, subject: subjectSelected })
+                });
+
+                if (response.ok) {
+                    const feed = document.getElementById('question-feed');
+                    const newQuestion = document.createElement('div');
+                    newQuestion.className = 'question-card bg-white p-8 rounded-xl shadow-md fade-in';
+                    newQuestion.setAttribute('role', 'article');
+                    newQuestion.innerHTML = `
+                        <div class="flex justify-between items-start">
+                            <h3 class="text-xl font-semibold text-gray-800">
+                                ${question}
+                                <span class="text-sm text-gray-500 italic block mt-1">
+                                    (${isAnonymous ? 'Anonymous' : 'User'}, ${classSelected} Grade, ${subjectSelected})
+                                </span>
+                            </h3>
+                        </div>
+                        <div class="mt-4 text-gray-600">
+                            <p class="text-base">No answers yet.</p>
+                        </div>
+                        <div class="flex space-x-4 mt-6">
+                            <button class="vote-btn flex items-center space-x-2 text-gray-600 px-4 py-2 rounded-md" onclick="vote(this, 'up', ${Date.now()})" aria-label="Upvote question">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path></svg>
+                                <span>0</span>
+                            </button>
+                            <button class="vote-btn flex items-center space-x-2 text-gray-600 px-4 py-2 rounded-md" onclick="vote(this, 'down', ${Date.now()})" aria-label="Downvote question">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                <span>0</span>
+                            </button>
+                        </div>
+                    `;
+                    feed.prepend(newQuestion);
+                    document.getElementById('question-form').reset();
+                } else {
+                    errorMessage.textContent = 'Failed to post question. Try again.';
+                    errorMessage.classList.remove('hidden');
+                }
+            } catch (error) {
+                console.error('Error posting question:', error);
+                errorMessage.textContent = 'An error occurred. Please try again.';
+                errorMessage.classList.remove('hidden');
+            }
+        });
+
+        // Voting function
+        function vote(button, type, questionId) {
+            const voteCountSpan = button.querySelector('span');
+            let count = parseInt(voteCountSpan.textContent);
+            voteCountSpan.textContent = type === 'up' ? count + 1 : Math.max(0, count - 1);
+
+            // Simulate API call for voting
+            fetch(`/api/questions/${questionId}/vote`, {
+                method: 'PATCH',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ type })
+            }).catch(error => console.error('Error voting:', error));
+        }
+    </script>
+</body>
+</html>

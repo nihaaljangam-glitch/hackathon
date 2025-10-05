@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Hack the Classroom — Login</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+  <div class="w-full max-w-xl bg-white rounded-xl shadow p-6">
+    <h1 class="text-2xl font-bold mb-4">Hack the Classroom</h1>
+
+    <div id="auth-area">
+      <div id="login-card" class="mb-4">
+        <h2 class="font-semibold mb-2">Login</h2>
+        <input id="loginEmail" type="email" placeholder="Email" class="w-full border p-2 mb-2 rounded" />
+        <input id="loginPassword" type="password" placeholder="Password" class="w-full border p-2 mb-2 rounded" />
+        <button id="loginBtn" class="w-full bg-blue-600 text-white p-2 rounded">Login</button>
+        <div id="loginMsg" class="text-sm text-red-500 mt-2"></div>
+      </div>
+
+      <div id="reg-card" class="mt-4">
+        <h2 class="font-semibold mb-2">Register</h2>
+        <input id="regName" placeholder="Full Name" class="w-full border p-2 mb-2 rounded" />
+        <input id="regEmail" type="email" placeholder="Email" class="w-full border p-2 mb-2 rounded" />
+        <input id="regPassword" type="password" placeholder="Password" class="w-full border p-2 mb-2 rounded" />
+        <button id="regBtn" class="w-full bg-green-600 text-white p-2 rounded">Register</button>
+        <div id="regMsg" class="text-sm text-red-500 mt-2"></div>
+      </div>
+    </div>
+
+    <div class="mt-6 text-sm text-gray-600">After login you will be redirected to the portal.</div>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>

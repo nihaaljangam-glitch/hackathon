@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Portal - Hack the Classroom</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-6">
+  <div class="max-w-4xl mx-auto">
+    <div class="flex items-center justify-between mb-4">
+      <h1 class="text-2xl font-bold">Portal</h1>
+      <div class="flex items-center gap-3">
+        <div id="profile-info" class="text-sm text-gray-700">Not signed in</div>
+        <button id="logoutBtn" class="px-3 py-1 bg-red-500 text-white rounded">Logout</button>
+      </div>
+    </div>
+
+    <div class="card bg-white p-4 rounded mb-4">
+      <input id="qTitle" placeholder="Question title" class="w-full border p-2 rounded mb-2" />
+      <textarea id="qBody" rows="3" placeholder="Describe your doubt..." class="w-full border p-2 rounded mb-2"></textarea>
+      <div class="flex gap-2">
+        <button id="postQ" class="px-4 py-2 bg-indigo-600 text-white rounded">Post Question</button>
+        <button id="refreshQ" class="px-4 py-2 bg-gray-300 rounded">Refresh</button>
+        <button id="profileBtn" class="px-3 py-2 bg-yellow-400 rounded text-sm">Profile</button>
+      </div>
+      <div id="postMsg" class="text-sm text-red-500 mt-2"></div>
+    </div>
+
+    <div class="grid grid-cols-2 gap-4">
+      <div>
+        <h2 class="font-semibold mb-2">Top Questions</h2>
+        <div id="topList" class="space-y-3"></div>
+      </div>
+      <div>
+        <h2 class="font-semibold mb-2">Recent Questions</h2>
+        <div id="recentList" class="space-y-3"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/portal.js"></script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>View Question</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-6">
+  <div class="max-w-3xl mx-auto">
+    <div class="mb-4 flex items-center justify-between">
+      <h1 id="page-title" class="text-xl font-bold">Question</h1>
+      <button id="backBtn" class="px-3 py-1 bg-gray-300 rounded">Back</button>
+    </div>
+
+    <div class="bg-white rounded p-4 mb-4">
+      <div id="qTitle" class="text-lg font-semibold mb-2"></div>
+      <div id="qBody" class="text-gray-700 mb-3"></div>
+      <div id="aiAnswer" class="bg-gray-50 p-3 rounded border-l-4 border-blue-500 text-gray-800 mb-2"></div>
+    </div>
+
+    <div class="bg-white rounded p-4 mb-4">
+      <h3 class="font-semibold mb-2">Post an Answer</h3>
+      <select id="role" class="border p-2 rounded mb-2 w-full">
+        <option value="student">Student</option>
+        <option value="mentor">Mentor</option>
+      </select>
+      <textarea id="answerBody" rows="4" class="w-full border p-2 rounded mb-2"></textarea>
+      <div class="flex gap-2">
+        <button id="postAnswer" class="px-4 py-2 bg-green-600 text-white rounded">Post Answer</button>
+      </div>
+    </div>
+
+    <div id="answersArea" class="bg-white rounded p-4">
+      <h3 class="font-semibold mb-3">All Answers</h3>
+      <div id="answersList" class="space-y-3"></div>
+    </div>
+  </div>
+
+  <script src="/view.js"></script>
+</body>
+</html>
